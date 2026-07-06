@@ -1,0 +1,2 @@
+# python_store_size_crop_tool
+一款裁剪任意尺寸的截图生成工具
