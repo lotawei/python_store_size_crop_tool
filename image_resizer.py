@@ -225,8 +225,6 @@ class ImageResizerApp:
         # ── 全局样式 ──
         style = ttk.Style()
         style.theme_use("aqua")
-        style.configure("TProgressbar", troughcolor=T.BG_INPUT, background=T.PRIMARY, borderwidth=0, thickness=6)
-        style.configure("TVertical.TScrollbar", background=T.BG_CARD, troughcolor=T.BG_PAGE, borderwidth=0, arrowsize=14)
 
         # ═══════════════════════════════════════════════════════
         #  1. 文件列表区域
@@ -237,7 +235,7 @@ class ImageResizerApp:
         list_frame = Frame(section1, bg=T.BG_CARD)
         list_frame.pack(fill=BOTH, expand=True)
 
-        sb = ttk.Scrollbar(list_frame, orient="vertical", style="TVertical.TScrollbar")
+        sb = ttk.Scrollbar(list_frame, orient="vertical")
         sb.pack(side=RIGHT, fill=Y)
         self.file_listbox = Listbox(
             list_frame, selectmode=MULTIPLE, yscrollcommand=sb.set,
@@ -341,7 +339,7 @@ class ImageResizerApp:
         action_bar = Frame(self.root, bg=T.BG_PAGE)
         action_bar.pack(fill=X, padx=T.LG, pady=(T.SM, T.XS))
 
-        self.progress = ttk.Progressbar(action_bar, mode="determinate", style="TProgressbar")
+        self.progress = ttk.Progressbar(action_bar, mode="determinate")
         self.progress.pack(side=LEFT, fill=X, expand=True, padx=(0, T.MD))
 
         self.status_label = Label(
